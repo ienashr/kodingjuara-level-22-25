@@ -1,0 +1,54 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#data-container {
+  margin-bottom: 20px;
+}
+
+/* Styles for news elements */
+.news-element {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.news-wrapper {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.news-element h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.news-element p {
+  margin-bottom: 0;
+}
+
+.news-element:not(:last-child) {
+  margin-bottom: 20px; /* Add margin-bottom between news elements */
+}

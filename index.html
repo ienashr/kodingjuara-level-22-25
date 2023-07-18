@@ -4,17 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>News Portal</title>
 </head>
 <body>
-    <div id="data-container">
+    <div id="data-container" class="news-element">
         <!-- Display existing news here -->
+
     </div>
     
     <form id="create-form">
         <input type="text" id="news-title-create" placeholder="Title" required>
         <textarea id="news-description-create" placeholder="Description" required></textarea>
         <button type="submit">Create News</button>
+    </form>
+
+    <form id="update-form">
+    <select id="news-id-update" required>
+        <option value="" disabled selected>Select News ID</option>
+    </select>
+        <input type="text" id="news-title-update" placeholder="Title" required>
+        <textarea id="news-description-update" placeholder="Description" required></textarea>
+        <button type="submit">Update News</button>
+    </form>
+
+    <form id="delete-form">
+        <select id="news-id-delete" required>
+            <option value="" disabled selected>Select News ID</option>
+        </select>
+        <button type="submit">Delete News</button>
     </form>
 
     <script src="index.js">      

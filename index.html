@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>News Portal</title>
 </head>
+
 <body>
+    <h1>News Portal</h1>
+
     <div id="data-container" class="news-element">
         <!-- Display existing news here -->
 
     </div>
-    
+
+
+<h2>Settings</h2>
+
+<main>
     <form id="create-form">
         <input type="text" id="news-title-create" placeholder="Title" required>
         <textarea id="news-description-create" placeholder="Description" required></textarea>
@@ -21,9 +30,9 @@
     </form>
 
     <form id="update-form">
-    <select id="news-id-update" required>
-        <option value="" disabled selected>Select News ID</option>
-    </select>
+        <select id="news-id-update" required>
+            <option value="" disabled selected>Select News ID</option>
+        </select>
         <input type="text" id="news-title-update" placeholder="Title" required>
         <textarea id="news-description-update" placeholder="Description" required></textarea>
         <input type="text" id="news-image-update" accept="image/*">
@@ -37,8 +46,10 @@
         </select>
         <button type="submit">Delete News</button>
     </form>
+</main>
 
-    <script src="index.js">      
-</script>
+    <script src="index.js">
+    </script>
 </body>
+
 </html>

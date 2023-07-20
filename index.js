@@ -1,53 +1,60 @@
-fetch('https://directus-ienas.cloud.programmercepat.com/items/news')
-  .then(response => response.json()) // Parse the response as JSON
-  .then(data => {
-    // Access the retrieved data here
-    console.log(data.data);
+const fetchData = () => {
+            fetch('https://directus-ienas.cloud.programmercepat.com/items/news')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.data);
 
-    // Display the data in the UI
-    const container = document.getElementById('data-container');
+                    const container = document.getElementById('data-container');
+                    container.innerHTML = '';
 
-          // Populate the ID dropdown in the update form
-    const updateFormDropdown = document.getElementById('news-id-update');
-      updateFormDropdown.innerHTML = '<option value="" disabled selected>Select News ID</option>';
-      data.data.forEach(news => {
-        const option = document.createElement('option');
-        option.value = news.id;
-        option.textContent = news.id;
-        updateFormDropdown.appendChild(option);
-      });
+                    const updateFormDropdown = document.getElementById('news-id-update');
+                    updateFormDropdown.innerHTML = '<option value="" disabled selected>Select News ID</option>';
+                    data.data.forEach(news => {
+                        const option = document.createElement('option');
+                        option.value = news.id;
+                        option.textContent = news.id;
+                        updateFormDropdown.appendChild(option);
+                    });
 
-       // Populate the ID dropdown in the delete form
-      const deleteFormDropdown = document.getElementById('news-id-delete');
-      deleteFormDropdown.innerHTML = '<option value="" disabled selected>Select News ID</option>';
-      data.data.forEach(news => {
-        const option = document.createElement('option');
-        option.value = news.id;
-        option.textContent = news.id;
-        deleteFormDropdown.appendChild(option);
-      });
+                    const deleteFormDropdown = document.getElementById('news-id-delete');
+                    deleteFormDropdown.innerHTML = '<option value="" disabled selected>Select News ID</option>';
+                    data.data.forEach(news => {
+                        const option = document.createElement('option');
+                        option.value = news.id;
+                        option.textContent = news.id;
+                        deleteFormDropdown.appendChild(option);
+                    });
 
-    
-    // Iterate over the data and create HTML elements to display it
-    data.data.forEach(news => {
-      const newsElement = document.createElement('div');
-      newsElement.classList.add('news-wrapper'); // Add the news wrapper class
+                    data.data.forEach(news => {
+                        const newsWrapper = document.createElement('div');
+                        newsWrapper.classList.add('news-wrapper'); // Add the news wrapper class
 
-      newsElement.textContent = news.title;
-      newsElement.textContent = news.description;
-      const imageElement = document.createElement('img');
-      imageElement.classList.add('news-image'); // Add the news image class
-      imageElement.src = news.image_url;
+                        const imageElement = document.createElement('img');
+                        imageElement.classList.add('news-image'); // Add the news image class
+                        imageElement.src = news.image_url; // Assuming the image URL is available in the 'image' property
 
-      newsElement.appendChild(imageElement);
-      container.appendChild(newsElement);
+                        const contentWrapper = document.createElement('div');
+                        contentWrapper.classList.add('news-content'); // Add the news content class
 
-    });
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the request
-    console.error('Error:', error);
-  });
+                        const titleElement = document.createElement('h3');
+                        titleElement.textContent = news.title;
+
+                        const descriptionElement = document.createElement('p');
+                        descriptionElement.textContent = news.description;
+
+                        contentWrapper.appendChild(titleElement);
+                        contentWrapper.appendChild(descriptionElement);
+
+                        newsWrapper.appendChild(imageElement);
+                        newsWrapper.appendChild(contentWrapper);
+
+                        container.appendChild(newsWrapper);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        };
 
 
         document.getElementById('create-form').addEventListener('submit', function (event) {

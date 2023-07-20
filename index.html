@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>News Portal</title>
 </head>
 <body>
@@ -16,6 +15,7 @@
     <form id="create-form">
         <input type="text" id="news-title-create" placeholder="Title" required>
         <textarea id="news-description-create" placeholder="Description" required></textarea>
+        <input type="text" id="news-image-create" accept="image/*">
         <button type="submit">Create News</button>
     </form>
 
@@ -25,6 +25,8 @@
     </select>
         <input type="text" id="news-title-update" placeholder="Title" required>
         <textarea id="news-description-update" placeholder="Description" required></textarea>
+        <input type="text" id="news-image-update" accept="image/*">
+
         <button type="submit">Update News</button>
     </form>
 

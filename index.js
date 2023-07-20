@@ -35,7 +35,13 @@ fetch('https://directus-ienas.cloud.programmercepat.com/items/news')
 
       newsElement.textContent = news.title;
       newsElement.textContent = news.description;
+      const imageElement = document.createElement('img');
+      imageElement.classList.add('news-image'); // Add the news image class
+      imageElement.src = news.image_url;
+
+      newsElement.appendChild(imageElement);
       container.appendChild(newsElement);
+
     });
   })
   .catch(error => {
@@ -49,10 +55,13 @@ fetch('https://directus-ienas.cloud.programmercepat.com/items/news')
 
             const title = document.getElementById('news-title-create').value;
             const description = document.getElementById('news-description-create').value;
+              const image = document.getElementById('news-image-create').value;
 
+          
             const data = {
                 title: title,
-                description: description
+              description: description,
+                image_url: image 
             };
 
             fetch('https://directus-ienas.cloud.programmercepat.com/items/news', {
@@ -65,7 +74,6 @@ fetch('https://directus-ienas.cloud.programmercepat.com/items/news')
                 .then(response => response.json())
                 .then(responseData => {
                     console.log('Response:', responseData);
-                    fetchData(); // Refresh the data after creating the news
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -78,10 +86,13 @@ fetch('https://directus-ienas.cloud.programmercepat.com/items/news')
       const newsId = document.getElementById('news-id-update').value;
       const title = document.getElementById('news-title-update').value;
       const description = document.getElementById('news-description-update').value;
+      const image = document.getElementById('news-image-create').value;
+
 
       const data = {
         title: title,
-        description: description
+        description: description,
+        image_url: image
       };
 
       fetch(`https://directus-ienas.cloud.programmercepat.com/items/news/${newsId}`, {

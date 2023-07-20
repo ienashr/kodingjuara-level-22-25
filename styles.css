@@ -1,4 +1,4 @@
-form {
+<link rel="stylesheet" href="styles.css" > form {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -38,6 +38,7 @@ button:hover {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  flex: 1; /* Allow the content to expand and fill the remaining space */
 }
 
 .news-element h3 {
@@ -51,4 +52,10 @@ button:hover {
 
 .news-element:not(:last-child) {
   margin-bottom: 20px; /* Add margin-bottom between news elements */
+}
+
+.news-image {
+  width: 150px; /* Set the fixed width for the image */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Add some spacing between the image and text */
 }
